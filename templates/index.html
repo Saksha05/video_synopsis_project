@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Synopsis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #1d2671, #c33764);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/1600x900/?technology,video') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .hero .btn {
+            background: #f0a500;
+            border: none;
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .hero .btn:hover {
+            background: #ff7c00;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 0;
+            background: #f7f9fc;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: #1d2671;
+        }
+        .features .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .features .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        .about h2 {
+            font-size: 2.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 0;
+        }
+        .contact input, .contact textarea {
+            border-radius: 5px;
+        }
+        .contact button {
+            background-color: #1d2671;
+            color: white;
+            border: none;
+            transition: transform 0.2s ease;
+        }
+        .contact button:hover {
+            transform: translateY(-3px);
+            background-color: #c33764;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1d2671;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* AOS Animations */
+        [data-aos] {
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Video Synopsis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" data-aos="fade-in">
+        <div class="container">
+            <h1 data-aos="zoom-in">Summarize Videos Efficiently</h1>
+            <p class="lead" data-aos="zoom-in" data-aos-delay="200">Turn lengthy surveillance footage into meaningful highlights in seconds.</p>
+
+            <!-- Try Feature Button with Dropdowns -->
+            <div class="d-inline-block" data-aos="fade-up" data-aos-delay="400">
+                <h5 class="mb-3">Try Our Feature:</h5>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 mb-2">
+                        <select class="form-select" id="featureSelect">
+                            <option selected disabled>Choose an Option</option>
+                            <option value="videoSynopsis">Video Synopsis</option>
+                            <option value="queryBased">Query Based</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-lg btn-warning w-100" id="submitFeature">Submit</button>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                // Handle dropdown selection and submission
+                document.getElementById('submitFeature').addEventListener('click', function () {
+                    const selectedFeature = document.getElementById('featureSelect').value;
+            
+                    if (selectedFeature === 'videoSynopsis') {
+                        // Navigate to the video upload page (using /upload route)
+                        window.location.href = '/upload';  // Change to /upload instead of /upload.html
+                    } else if (selectedFeature === 'queryBased') {
+                        alert('Query Based Feature Coming Soon!');
+                    } else {
+                        alert('Please select a feature to proceed.');
+                    }
+                });
+            </script>
+            
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="features">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="card p-3">
+                        <div class="feature-icon mb-3"><i class="bi bi-camera-video"></i></div>
+                        <h4>Human Detection</h4>
+                        <p>Automatically identify humans in video frames using advanced AI.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card p-3">
+                        <div class="feature-icon mb-3"><i class="bi bi-clock-history"></i></div>
+                        <h4>Time Efficiency</h4>
+                        <p>Save hours of manual analysis with our fast processing algorithms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left" data-aos-delay="400">
+                    <div class="card p-3">
+                        <div class="feature-icon mb-3"><i class="bi bi-layout-text-sidebar-reverse"></i></div>
+                        <h4>Tube Packing</h4>
+                        <p>Organize detected movements seamlessly into summarized videos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="about" data-aos="zoom-in">
+        <div class="container">
+            <h2>About Video Synopsis</h2>
+            <p class="lead">Our application leverages cutting-edge technology like YOLOv5 and OpenCV to provide the most efficient video summarization solution.</p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="contact">
+        <div class="container text-center">
+            <h2 data-aos="fade-in">Contact Us</h2>
+            <p data-aos="fade-in" data-aos-delay="200">Have questions or need support? Drop us a message!</p>
+            <form class="row g-3 justify-content-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-5">
+                    <input type="email" class="form-control" placeholder="Your Email">
+                </div>
+                <div class="col-md-5">
+                    <textarea class="form-control" rows="3" placeholder="Your Message"></textarea>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-100">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2024 Video Synopsis. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    </script>
+</body>
+</html>
